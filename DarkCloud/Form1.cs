@@ -126,7 +126,7 @@ namespace DarkCloud {
         MessageBox.Show(
          @"Cannot find the executable path specified",
          "Error", MessageBoxButtons.OK, MessageBoxIcon.Error
-       );
+        );
 
       }
 
