@@ -1,0 +1,29 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.1525
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DarkCloud", "DarkCloud\DarkCloud.csproj", "{6FE573E4-90DC-47BF-BB97-DCCCDA6ECBAF}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "DarkCloudsSetup", "DarkCloudsSetup\DarkCloudsSetup.vdproj", "{87296CC9-ADCB-4B09-9CE9-5FF3B9A7E916}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6FE573E4-90DC-47BF-BB97-DCCCDA6ECBAF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6FE573E4-90DC-47BF-BB97-DCCCDA6ECBAF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6FE573E4-90DC-47BF-BB97-DCCCDA6ECBAF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6FE573E4-90DC-47BF-BB97-DCCCDA6ECBAF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{87296CC9-ADCB-4B09-9CE9-5FF3B9A7E916}.Debug|Any CPU.ActiveCfg = Debug
+		{87296CC9-ADCB-4B09-9CE9-5FF3B9A7E916}.Release|Any CPU.ActiveCfg = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {166D3D4B-5CC9-4771-B950-4BBED1C03744}
+	EndGlobalSection
+EndGlobal
