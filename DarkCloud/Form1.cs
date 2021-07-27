@@ -1,16 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Diagnostics;
 using System.IO;
-using System.Globalization;
-using Microsoft.Win32;
+using System.IO.Compression;
 
 namespace DarkCloud {
   public partial class Form1 : Form {
@@ -21,11 +14,6 @@ namespace DarkCloud {
 
       backup_dir.Text = appsettings.Default.local_dir;
       textbox_gamedir.Text = appsettings.Default.game_dir;
-
-      MessageBox.Show(
-        @"Be sure to have installed 7zip in your system 'Program Files\7-Zip'", 
-        "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning
-      );
 
     }
 
@@ -77,6 +65,23 @@ namespace DarkCloud {
 
     }
 
+    private void saveCurrentGameSaveFiles(string gamename) {
+
+      string appdata_path =
+        Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+
+      string final_backup_path = appdata_path + "\\" + gamename;
+
+      string final_backupdir = backup_dir.Text + "\\" + gamename +
+        getRealDate() + "-" + appsettings.Default.backup_num + ".zip";
+
+      ZipFile.CreateFromDirectory(final_backup_path, final_backupdir);
+
+      appsettings.Default.backup_num++;
+      appsettings.Default.Save();
+
+    }
+
     private void backup_dir_TextChanged(object sender, EventArgs e) {
 
       appsettings.Default.local_dir = backup_dir.Text;
@@ -100,31 +105,30 @@ namespace DarkCloud {
 
     private void launch_button_Click(object sender, EventArgs e) {
 
-      string path = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName;
-      Process bat_process = new Process();
-      bat_process.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
-
-      //Change directory path if the executable file its installed of opened from vs
-      if (System.Diagnostics.Debugger.IsAttached) {
-        bat_process.StartInfo.FileName = path + @"\bat_files\savedata.bat";
-      } else {
-        bat_process.StartInfo.FileName =
-          AppDomain.CurrentDomain.BaseDirectory + @"bat_files\savedata.bat";
-      }
-
       String game_detected = detectGameInPathByString();
-      String date_string = getRealDate();
+      Console.WriteLine(textbox_gamedir);
+      String gamepath = textbox_gamedir.Text + @"\" + game_detected + @".exe";
+      Console.WriteLine(textbox_gamedir);
 
-      bat_process.StartInfo.Arguments = String.Format(
-      "\"{0}\" \"{1}\" \"{2}\" \"{3}\" \"{4}\"",
-      game_detected, backup_dir.Text, textbox_gamedir.Text
-      + @"\" + game_detected + @".exe", game_detected + @".exe", date_string);
+      //Check if game executable file exists then start the process
+      if (File.Exists(gamepath)) {
 
-      Console.WriteLine("Process arguments: " + bat_process.StartInfo.Arguments);
-      bat_process.Start();
-      checkRunningProcessStatus(bat_process);
-      bat_process.WaitForExit();
-      checkRunningProcessStatus(bat_process);
+        saveCurrentGameSaveFiles(game_detected);
+
+        Process game_process = Process.Start(gamepath);
+
+        checkRunningProcessStatus(game_process);
+        game_process.WaitForExit();
+        checkRunningProcessStatus(game_process);
+
+      } else {
+
+        MessageBox.Show(
+         @"Cannot find the executable path specified",
+         "Error", MessageBoxButtons.OK, MessageBoxIcon.Error
+       );
+
+      }
 
     }
 

@@ -15,12 +15,6 @@
     {
         "Entry"
         {
-        "MsmKey" = "8:_4FFCD041E8CF45E58349B52FA278893A"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_649163BB4B02C44BEFAC844C730ACC03"
         "OwnerKey" = "8:_AD6DF9F3BCD145B88171EE80A72A742C"
         "MsmSig" = "8:_UNDEFINED"
@@ -144,26 +138,6 @@
         }
         "File"
         {
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_4FFCD041E8CF45E58349B52FA278893A"
-            {
-            "SourcePath" = "8:..\\DarkCloud\\bat_files\\savedata.bat"
-            "TargetName" = "8:savedata.bat"
-            "Tag" = "8:"
-            "Folder" = "8:_5C38A14FDB1D483983213FDB29D13885"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_649163BB4B02C44BEFAC844C730ACC03"
             {
             "AssemblyRegister" = "3:1"
@@ -171,11 +145,6 @@
             "AssemblyAsmDisplayName" = "8:System.Net.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
                 "ScatterAssemblies"
                 {
-                    "_649163BB4B02C44BEFAC844C730ACC03"
-                    {
-                    "Name" = "8:System.Net.Http.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:System.Net.Http.dll"
             "TargetName" = "8:"
@@ -242,17 +211,6 @@
             "Property" = "8:TARGETDIR"
                 "Folders"
                 {
-                    "{9EF0B969-E518-4E46-987F-47570745A589}:_5C38A14FDB1D483983213FDB29D13885"
-                    {
-                    "Name" = "8:bat_files"
-                    "AlwaysCreate" = "11:FALSE"
-                    "Condition" = "8:"
-                    "Transitive" = "11:FALSE"
-                    "Property" = "8:_D3BFCEEFCDA844CD857BB3E4B8639468"
-                        "Folders"
-                        {
-                        }
-                    }
                 }
             }
             "{1525181F-901A-416C-8A58-119130FE478E}:_215C83444C174D0EBF1E063C8F137B88"

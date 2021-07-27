@@ -46,5 +46,17 @@ namespace DarkCloud {
                 this["game_dir"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int backup_num {
+            get {
+                return ((int)(this["backup_num"]));
+            }
+            set {
+                this["backup_num"] = value;
+            }
+        }
     }
 }
