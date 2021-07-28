@@ -1,5 +1,5 @@
 ﻿namespace DarkCloud {
-  partial class Form1 {
+  partial class main_form {
     /// <summary>
     /// Required designer variable.
     /// </summary>
@@ -23,7 +23,7 @@
     /// the contents of this method with the code editor.
     /// </summary>
     private void InitializeComponent() {
-      System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+      System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(main_form));
       this.launch_button = new System.Windows.Forms.Button();
       this.backup_dir = new System.Windows.Forms.TextBox();
       this.folder_browser = new System.Windows.Forms.FolderBrowserDialog();
@@ -118,7 +118,7 @@
       this.process_status_label.TabIndex = 10;
       this.process_status_label.Text = "Not running";
       // 
-      // Form1
+      // main_form
       // 
       this.ClientSize = new System.Drawing.Size(279, 139);
       this.Controls.Add(this.process_status_label);
@@ -132,7 +132,7 @@
       this.Controls.Add(this.launch_button);
       this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
       this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-      this.Name = "Form1";
+      this.Name = "main_form";
       this.Text = "DarkClouds";
       this.ResumeLayout(false);
       this.PerformLayout();

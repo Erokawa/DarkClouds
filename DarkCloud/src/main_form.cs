@@ -6,14 +6,23 @@ using System.IO;
 using System.IO.Compression;
 
 namespace DarkCloud {
-  public partial class Form1 : Form {
+  public partial class main_form : Form {
 
-    public Form1() {
+    public main_form() {
 
       InitializeComponent();
 
       backup_dir.Text = appsettings.Default.local_dir;
       textbox_gamedir.Text = appsettings.Default.game_dir;
+
+      checkIfLocalDirectoryExists();
+
+      System.Reflection.Assembly assembly = 
+        System.Reflection.Assembly.GetExecutingAssembly();
+      System.Diagnostics.FileVersionInfo fvi = 
+        System.Diagnostics.FileVersionInfo.GetVersionInfo(assembly.Location);
+
+      this.Text += " " + fvi.FileVersion;
 
     }
 
@@ -82,10 +91,22 @@ namespace DarkCloud {
 
     }
 
+    //Enables launch button if local directory exists, disables otherwise
+    private void checkIfLocalDirectoryExists() {
+
+      if (!Directory.Exists(appsettings.Default.local_dir))
+        launch_button.Enabled = false;
+      else
+        launch_button.Enabled = true;
+
+    }
+
     private void backup_dir_TextChanged(object sender, EventArgs e) {
 
       appsettings.Default.local_dir = backup_dir.Text;
       appsettings.Default.Save();
+
+      checkIfLocalDirectoryExists();
 
     }
 
